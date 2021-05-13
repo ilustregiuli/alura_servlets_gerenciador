@@ -22,7 +22,6 @@ public class NovaEmpresaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Cadastrando nova empresa.");
-		PrintWriter out = response.getWriter();
 		
 		String nome = request.getParameter("nome");
 		Empresa empresa = new Empresa();
@@ -43,7 +42,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		 * ".setAttribute" recebe dois parâmetros: um nome String (apelido) e um Object
 		 * Esse apelido é usado para referenciar lá no JSP
 		 */
-		request.setAttribute("empresa", empresa.getNome());
+		request.setAttribute("emp", empresa);
 		
 		
 		rd.forward(request, response);
