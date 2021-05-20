@@ -42,7 +42,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		 * ".setAttribute" recebe dois parâmetros: um nome String (apelido) e um Object
 		 * Esse apelido é usado para referenciar lá no JSP
 		 */
-		request.setAttribute("emp", empresa);
+		request.setAttribute("emp", empresa.getNome());
 		
 		
 		rd.forward(request, response);
