@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 public class ListaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// Método alterado para "service" em vez de "doGet", pois a requisição que vêm é "post"
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Banco banco = new Banco();
 		
 		for(Empresa empresa : banco.getEmpresa()) { // mostra no servidor
@@ -27,6 +28,8 @@ public class ListaEmpresaServlet extends HttpServlet {
 		
 		request.setAttribute("empresas",lista); // envio da lista para JSP "Lista Empresa", atributo "empresas"
 		
+		System.out.println("Passou pela Lista Empresa Servlet");
+		System.out.println("Vai para: Lista Empresa JSP");
 		RequestDispatcher rd = request.getRequestDispatcher("/ListaEmpresa.jsp");
 		rd.forward(request, response);
 		
