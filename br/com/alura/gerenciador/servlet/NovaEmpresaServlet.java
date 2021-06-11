@@ -45,23 +45,10 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
-		// Agora, vai enviar a requisição com as empresas do Banco para servlet "lista empresa"
 		
-		/* cria uma referência de RequestDispatcher que recebe um objeto
-		 criado pelo método "getReq..." de "request". Esse método recebe
-		 como parâmetro o caminho para onde o objeto "rd" deve encaminhar	
-		 as requisições	*/	
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresa"); 
 		
-		/* Associa à requisição aquilo que eu quero enviar para o servlet "listaEmpresa"
-		 * ".setAttribute" recebe dois parâmetros: um nome String (apelido) e um Object
-		 * 
-		 */
-		System.out.println("Passou pela Nova Empresa Servlet");
-		System.out.println("Vai para: Lista Empresa Servlet");
-		
-		request.setAttribute("emp", empresa.getNome());
-		rd.forward(request, response);
+		// Agora a requisição é enviada para o navegador fazer o redirecionamento para "listaempresas"
+		response.sendRedirect("listaEmpresa");
 		
 		
 		
