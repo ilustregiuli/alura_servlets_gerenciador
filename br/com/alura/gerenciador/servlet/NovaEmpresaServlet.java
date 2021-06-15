@@ -45,9 +45,10 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
-		
-		
-		// Agora a requisição é enviada para o navegador fazer o redirecionamento para "listaempresas"
+	
+		// Agora a requisição é enviada para o navegador
+		//com "response", indicando ele a redirecionar uma nova requisição 
+		// para "listaempresas"
 		response.sendRedirect("listaEmpresa");
 		
 		
