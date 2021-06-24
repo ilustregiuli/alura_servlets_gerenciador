@@ -12,25 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "removeEmpresa", urlPatterns = { "/removeEmpresa" })
-public class RemoveEmpresa extends HttpServlet {
+@WebServlet(name = "alteraEmpresa", urlPatterns = { "/alteraEmpresa" })
+public class AlteraEmpresa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	// Método alterado para "service" em vez de "doGet", pois a requisição que vêm é "post"
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Chegou aqui! Alterar");
 		// recebe aqui a requisição do navegador
-		// pegar a empresa onde foi clicada o "remover"
-		// vai usar o ID da empresa para fazer a exclusão
+		// pegar a empresa onde foi clicada o "alterar"
+		// vai usar o ID da empresa para fazer a alteração
 		
-		String idParam = request.getParameter("id");
-		Integer id = Integer.valueOf(idParam);
-		System.out.println(id);
-		
-		Banco banco = new Banco();
-		banco.remove(id);
-		
-		
+		response.getWriter().append("Olá Alterar");
 	}
 
 }
