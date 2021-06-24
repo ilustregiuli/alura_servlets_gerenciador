@@ -25,6 +25,17 @@ public class MostraEmpresa extends HttpServlet {
 		Banco banco = new Banco();
 		Empresa empresa = banco.buscaId(id);
 		System.out.println(empresa.getNome());
+		
+		// Após achar a empresa, vai colocar os dados dela "setando" os atributos da requisição 
+		// com os dados da empresa buscada - 1 parametro : nome que vou dar ao dado para ser referenciado
+		// na request, 2 parametro: o objeto
+		request.setAttribute("empresa", empresa);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/formEditaEmpresa.jsp");
+		rd.forward(request, response);
+		
+		
+		
 	}
 
 }
