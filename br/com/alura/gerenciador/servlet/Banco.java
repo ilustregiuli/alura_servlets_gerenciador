@@ -39,7 +39,7 @@ public class Banco {
 		while(it.hasNext()) {
 			Empresa emp = it.next();
 			if(emp.getId() == id) {
-				Banco.lista.remove(emp);
+				it.remove();
 			}
 		}
 		
